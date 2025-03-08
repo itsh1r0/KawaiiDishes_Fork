@@ -15,7 +15,7 @@ public class ArmorMaterials {
 
         @Override
         public int getDefenseForType(ArmorItem.Type pSlot) {
-            return 2;
+            return 1;
         }
 
         @Override
@@ -46,7 +46,9 @@ public class ArmorMaterials {
         @Override
         public float getKnockbackResistance() {
             return 0;
-        }};
+        }
+    };
+
     public static ArmorMaterial maidDress = new ArmorMaterial() {
         @Override
         public int getDurabilityForType(ArmorItem.Type pSlot) {
@@ -57,9 +59,9 @@ public class ArmorMaterials {
         public int getDefenseForType(ArmorItem.Type pSlot) {
             switch (pSlot){
                 case CHESTPLATE:
-                    return 4;
+                    return 1;
                 case LEGGINGS:
-                    return 2;
+                    return 1;
                 case BOOTS:
                     return 1;
             }
@@ -94,7 +96,9 @@ public class ArmorMaterials {
         @Override
         public float getKnockbackResistance() {
             return 0;
-        }};
+        }
+    };
+
     public static ArmorMaterial tailedDress = new ArmorMaterial() {
         @Override
         public int getDurabilityForType(ArmorItem.Type pSlot) {
@@ -103,7 +107,7 @@ public class ArmorMaterials {
 
         @Override
         public int getDefenseForType(ArmorItem.Type pSlot) {
-            return 6;
+            return 1;
         }
 
         @Override
@@ -134,5 +138,6 @@ public class ArmorMaterials {
         @Override
         public float getKnockbackResistance() {
             return 0;
-        }};
+        }
+    };
 }

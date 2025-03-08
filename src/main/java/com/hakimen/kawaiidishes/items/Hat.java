@@ -52,7 +52,7 @@ public class Hat extends Item implements Equipable {
         if(slot == EquipmentSlot.HEAD){
             ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
             UUID uuid = UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B");
-            builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier",2, AttributeModifier.Operation.ADDITION));
+            builder.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier",1, AttributeModifier.Operation.ADDITION));
 
             return builder.build();
         }else

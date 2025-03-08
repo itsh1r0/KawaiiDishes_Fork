@@ -166,8 +166,8 @@ public class ItemRegister {
     public static final RegistryObject<Item> honeyCookie = ITEMS.register("honey_cookie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().saturationMod(1).nutrition(3).build())));
     public static final RegistryObject<Item> chocolateCookie = ITEMS.register("chocolate_cookie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().saturationMod(1).nutrition(3).build())));
     public static final RegistryObject<Item> goldenCookie = ITEMS.register("golden_cookie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().saturationMod(1).nutrition(6).alwaysEat()
-            .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 20 * 60, 1), 1f)
-            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 20 * 20, 1), 1f).build())));
+            .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 20 * 30, 0), 1f)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 20 * 10, 0), 1f).build())));
 
     public static final RegistryObject<Item> unbindingCookie = ITEMS.register("cookie_of_unbinding", () -> new UnbindingCookie(new Item.Properties().food(new FoodProperties.Builder().saturationMod(1).nutrition(3).alwaysEat().build())));
 

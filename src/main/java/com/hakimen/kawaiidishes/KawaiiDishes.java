@@ -12,6 +12,7 @@ import com.hakimen.kawaiidishes.registry.Registration;
 import com.hakimen.kawaiidishes.utils.MaidMobEventHandler;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.monster.*;
@@ -32,15 +33,10 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
-import java.util.Random;
-
-
-
 @Mod("kawaiidishes")
 public class KawaiiDishes {
 
     // Directly reference a slf4j logger
-    public static final Random RANDOM = new Random();
     public static final Logger LOGGER = LogUtils.getLogger();
     public static final String modId = "kawaiidishes";
     public KawaiiDishes() {
@@ -65,14 +61,14 @@ public class KawaiiDishes {
 
     public void onLivingSpecialSpawn(MobSpawnEvent event) {
         Entity entity = event.getEntity();
-        if (!entity.isAddedToWorld() && entity instanceof Monster monster && !entity.serializeNBT().getBoolean("isBaby") && RANDOM.nextFloat(0,1) < KawaiiDishesCommonConfig.chanceToSpawnWithDress.get()) {
+        if (!entity.isAddedToWorld() && entity instanceof Monster monster && !entity.serializeNBT().getBoolean("isBaby") && RandomSource.create().nextFloat() < KawaiiDishesCommonConfig.chanceToSpawnWithDress.get()) {
             if((monster instanceof Skeleton
                     || monster instanceof WitherSkeleton
                     || monster instanceof Stray
                     || monster instanceof Zombie
                     || monster instanceof Piglin
                     || monster instanceof PiglinBrute) && KawaiiDishesCommonConfig.shouldMobSpawnWithDress.get()){
-                ItemStack[] stacks = MaidMobEventHandler.armorBuild(RANDOM);
+                ItemStack[] stacks = MaidMobEventHandler.armorBuild(RandomSource.create());
 
                 monster.setItemSlot(EquipmentSlot.HEAD, stacks[0]);
                 monster.setItemSlot(EquipmentSlot.CHEST, stacks[1]);

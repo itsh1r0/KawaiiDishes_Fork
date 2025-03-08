@@ -1,6 +1,7 @@
 package com.hakimen.kawaiidishes.utils;
 
 import com.hakimen.kawaiidishes.registry.ItemRegister;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
@@ -59,7 +60,7 @@ public class MaidMobEventHandler {
 
 
 
-    public static ItemStack[] armorBuild(Random r) {
+    public static ItemStack[] armorBuild(RandomSource r) {
 
         String color, type, typeColor = "";
 
@@ -86,7 +87,7 @@ public class MaidMobEventHandler {
                 ItemStack.EMPTY
         };
 
-        if(r.nextFloat(0,1) < (Date.from(Instant.now()).getMonth()+1 == Month.APRIL.getValue() ? 0.25f : 0.05f)){
+        if(r.nextFloat() < (Date.from(Instant.now()).getMonth()+1 == Month.APRIL.getValue() ? 0.25f : 0.05f)){
             typeColor = catColors[r.nextInt(catColors.length)];
             if(typeColor.equals("caramel")){
                 stacks[0] = ItemRegister.caramelBunnyEars.get().getDefaultInstance();
@@ -132,7 +133,7 @@ public class MaidMobEventHandler {
         }
 
         stacks[3] = r.nextInt(2) == 1 ? ItemRegister.whiteThighHighsShoes.get().getDefaultInstance() : ItemRegister.blackThighHighsShoes.get().getDefaultInstance();
-        if(r.nextFloat(0,1) < (Date.from(Instant.now()).getMonth()+1 == Month.OCTOBER.getValue() ? 0.75f :  0.05f)){
+        if(r.nextFloat() < (Date.from(Instant.now()).getMonth()+1 == Month.OCTOBER.getValue() ? 0.75f :  0.05f)){
             stacks[0] = Items.JACK_O_LANTERN.getDefaultInstance();
         }
         return stacks;
